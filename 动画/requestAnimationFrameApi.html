@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>requestAnimationFrame实现动画</title>
+</head>
+<style>
+  body {
+    box-sizing: border-box;
+    background-color: #ccc;
+  }
+
+  .box1,
+  .box2 {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    line-height: 160px;
+    text-align: center;
+    color: #fff;
+    font-size: 13px;
+  }
+
+  .box1 {
+    top: 40px;
+    background: red;
+  }
+
+  .box2 {
+    top: 210px;
+    background: green;
+  }
+</style>
+<body>
+  <button class="btn" onclick="handleStart()">开始动画</button>
+  <div id="box1" class="box1">定时器动画</div></div>
+  <div id="box2" class="box2">请求动画帧</div>
+  <div></div>
+</body>
+<script>
+function handleStart () {
+  console.log('开始动画');
+  handleTimerAnimation()
+  handleRequestAnimationFrame()
+}
+
+// 定时器动画
+function handleTimerAnimation() {
+  console.log('定时器动画');
+  const box1 = document.getElementById('box1');
+  box1.style.left = '0px'
+
+  box1.style.left = '0px';
+  const timer = setInterval(() => {
+    let leftVal = parseInt(box1.style.left)
+    if (leftVal >= 720) {
+      clearInterval(timer)
+    } else {
+      box1.style.left = leftVal + 1 + 'px'
+    }
+  }, 17);
+}
+
+function handleRequestAnimationFrame() {
+  console.log('请求动画帧');
+  let timer = null // 可注掉
+  box2.style.left = '0px'
+  function callbackFn() {
+    let leftVal = parseInt(box2.style.left)
+    if (leftVal >= 720) {
+      // 不再继续递归调用即可，就不会继续执行了，下面这个加不加都无所谓，因为影响不到
+      // cancelAnimationFrame取消请求动画帧，用的极少，看下，下文中的回到顶部组件
+      // 大家会发现并没有使用到这个api（这样写只是和clearInterval做一个对比）
+      // 毕竟，正常情况下，requestAnimationFrame会自动停下来
+      cancelAnimationFrame(timer) // 可注掉（很少用到）
+    } else {
+      box2.style.left = leftVal + 1 + 'px'
+      window.requestAnimationFrame(callbackFn)
+    }
+  }
+  window.requestAnimationFrame(callbackFn)
+}
+</script>
+</html>
+<!-- https://juejin.cn/post/7190728064458817591?searchId=2024080915450756CB6F94DF16061B1407 -->
