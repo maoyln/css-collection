@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>圆-弧形</title>
+</head>
+<style>
+  .container {
+    display: flex;
+  }
+
+  /* 扇形 */
+  .round1 {
+    border: 100px solid transparent;
+    width: 0;
+    height: 0;
+    border-radius: 100px;
+    border-top-color: red;
+  }
+
+  /* 圆形 */
+  .round2 {
+    background-color: red;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+  }
+</style>
+<body>
+  <div class="container">
+    <!-- 扇形 -->  
+    <div class="round1"></div>
+    <hr>
+  
+    <!-- 圆形 -->  
+    <div class="round2"></div>
+    <hr>
+  </div>
+</body>
+</html>
