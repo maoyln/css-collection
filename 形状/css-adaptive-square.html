@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自适应正方形</title>
+</head>
+<style>
+  .container {
+    /* display: flex; */
+  }
+
+  /* 使用vw */
+  .square1 {
+    width: 10%;
+    height: 10vw;
+    background: tomato;
+  }
+
+  /* 利用元素的margin/padding百分比是相对父元素width的性质来实现 */
+  .square2 {
+    width: 20%;
+    height: 0;
+    padding-top: 20%;
+    background: orange;
+  }
+
+  /* 利用子元素的margin-top的值来实现： */
+  .square3 {
+    width: 30%;
+    overflow: hidden;
+    background: yellow;
+  }
+  .square3::after {
+    content: '';
+    display: block;
+    margin-top: 100%;
+  }
+</style>
+<body>
+  <div class="container">
+    <!-- 使用vw -->
+    <div class="square1"></div>
+    <hr/>
+
+    <!-- 利用元素的margin -->
+    <div class="square2"></div>
+    <hr/>
+
+    <!-- 利用子元素的margin-top的值来实现： -->
+    <div class="square3"></div>
+    <hr/>
+  </div>
+  
+</body>
+</html>
