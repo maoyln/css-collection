@@ -48,7 +48,7 @@ function handleStart () {
 // 定时器动画
 function handleTimerAnimation() {
   console.log('定时器动画');
-  const box1 = document.getElementById('box1');
+  // const box1 = document.getElementById('box1');
   box1.style.left = '0px'
 
   box1.style.left = '0px';
@@ -65,6 +65,7 @@ function handleTimerAnimation() {
 function handleRequestAnimationFrame() {
   console.log('请求动画帧');
   let timer = null // 可注掉
+  // const box2 = document.getElementById('box2');
   box2.style.left = '0px'
   function callbackFn() {
     let leftVal = parseInt(box2.style.left)
