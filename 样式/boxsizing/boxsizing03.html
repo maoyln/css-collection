@@ -3,18 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Box-Sizing: Border-Box Example</title>
+  <title>Box-Sizing Comparison</title>
   <style>
+    .box-content, .box-border {
+      margin-bottom: 20px;
+      padding: 20px;
+      border: 5px solid black;
+    }
+
+    .box-content {
+      width: 200px;
+      height: 100px;
+      box-sizing: content-box;
+      background-color: lightblue;
+    }
+
     .box-border {
       width: 200px;
       height: 100px;
-      padding: 20px;
-      border: 5px solid black;
-      box-sizing: border-box; /* 设置为 border-box */
+      box-sizing: border-box;
       background-color: lightcoral;
     }
 
-    .box-border span {
+    .box-content span, .box-border span {
       display: block;
       padding: 5px;
       background-color: lightgreen;
@@ -23,8 +34,12 @@
 </head>
 <body>
 
+  <div class="box-content">
+    <span>Content Box (content-box)</span>
+  </div>
+
   <div class="box-border">
-    <span>Content Area</span>
+    <span>Border Box (border-box)</span>
   </div>
 
 </body>
