@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>position, transform, translate Demo</title>
+  <style>
+    /* 设置一些样式，方便查看效果 */
+    .container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 300px;
+      border: 2px solid black;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: rgb(230, 173, 173);
+      text-align: center;
+      line-height: 100px;
+      font-weight: bold;
+    }
+
+    .position-relative {
+      position: relative;
+      top: 50px;
+      left: 50px;
+      background-color: lightgreen;
+    }
+
+    .position-absolute {
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      background-color: lightcoral;
+    }
+
+    .position-fixed {
+      position: fixed;
+      top: 50px;
+      left: 50px;
+      background-color: lightyellow;
+    }
+
+    .transform-translate {
+      transform: translate(50px, 50px);
+      background-color: lightpink;
+    }
+
+    .transform-rotate {
+      transform: rotate(45deg);
+      background-color: lightcyan;
+    }
+
+    .transform-scale {
+      transform: scale(1.5);
+      background-color: lightgoldenrodyellow;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="box position-relative">
+      Relative (position: relative)
+    </div>
+
+    <div class="box position-absolute">
+      Absolute (position: absolute)
+    </div>
+
+    <div class="box position-fixed">
+      Fixed (position: fixed)
+    </div>
+
+    <div class="box transform-translate">
+      Translate (transform: translate)
+    </div>
+
+    <div class="box transform-rotate">
+      Rotate (transform: rotate)
+    </div>
+
+    <div class="box transform-scale">
+      Scale (transform: scale)
+    </div>
+  </div>
+
+</body>
+</html>
