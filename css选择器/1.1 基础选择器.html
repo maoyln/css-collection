@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.1 基础选择器</title>
+  <style>
+    * {
+      font-size: 14px;
+      color: blue;
+    }
+    
+    a {
+      color: red;
+    }
+
+    .ttt {
+      color: rgb(119, 255, 0);
+    }
+
+    #my-id {
+      color: aqua;
+    }
+
+    [my-id] {color: blueviolet;}
+
+
+  </style>
+</head>
+<body>
+  <div>
+    <span>通配选择器	*	选中所有元素</span> 
+    <p>通配选择器	*	选中所有元素</p>
+    <p>通配选择器	*	选中所有元素</p>
+    <p>通配选择器	*	选中所有元素</p>
+    <a href="">类型选择器	tag	选中所有指定标签</a>
+    <br>
+    <a class="ttt">类选择器	.class	选中所有具有该类的元素</a>
+    <br>
+    <a href="">类型选择器	tag	选中所有指定标签</a>
+    <br>
+    <div id="my-id">ID 选择器	#id	选中特定 ID 元素</div>
+    <div my-id="custom">属性选择器	[attr]	选中所有具有指定属性的元素</div>
+  </div>
+</body>
+</html>
