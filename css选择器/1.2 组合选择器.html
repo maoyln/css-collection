@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.2 组合选择器</title>
+  <style>
+    div p {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <!-- 后代选择器	A B	选中 A 内部所有 B  --- 所有的a标签中的p标签样式全部改变 -->
+    <div>
+      <p>后代选择器	A B	选中 A 内部所有 B</p>
+      <p>后代选择器	A B	选中 A 内部所有 B</p>
+      <p>后代选择器	A B	选中 A 内部所有 B</p>
+      <span>
+        <p>后代选择器	A B	选中 A 内部所有 B---span中的p</p>
+      </span>
+      <div>
+        后代选择器	A B	选中 A 内部所有 B --不是p中的元素
+      </div>
+      <div>
+        <div>
+          <p>后代选择器	A B	选中 A 内部所有 B-----内部</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
