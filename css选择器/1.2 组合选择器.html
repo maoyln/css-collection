@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>1.2 组合选择器</title>
   <style>
-    div p {
-      color: blue;
-    }
+    div p { color: blue; }
+    ul > li { color: green; }
+
+    h1 + p { color: brown;}
+    div + p { color: rgb(42, 165, 149);}
   </style>
 </head>
 <body>
@@ -29,6 +31,36 @@
         </div>
       </div>
     </div>
+
+    ----------------------------------------------------------------
+
+    <!-- 子选择器	A > B	选中 A 的直接子元素 B -->
+    <div>
+      <ul>
+        <li>子选择器	A > B	选中 A 的直接子元素 B</li>
+        <li>子选择器	A > B	选中 A 的直接子元素 B</li>
+        <div>
+          <li>子选择器	A > B	选中 A 的直接子元素 B ---内部-div中的li</li>
+        </div>
+        <div>
+          <ul>
+            <li>子选择器	A > B	选中 A 的直接子元素 B ---内部-div中的ul中的li</li>
+          </ul>
+        </div>
+      </ul>
+    </div>
+    ----------------------------------------------------------------
+    <div>
+      <h1>相邻兄弟选择器	A + B	选中 紧邻 A 的 B</h1>
+      <p>相邻兄弟选择器	A + B	选中 紧邻 A 的 B---相邻</p>
+      <div>相邻兄弟选择器	A + B	选中 紧邻 A 的 B</div>
+      <p>相邻兄弟选择器	A + B	选中 紧邻 A 的 B----相邻</p>
+      <p>相邻兄弟选择器	A + B	选中 紧邻 A 的 B----不相邻---颜色是用的div中的p的样式</p>
+    </div>
+
+    -----------------------------------------------------------------
+
+
   </div>
 </body>
 </html>
