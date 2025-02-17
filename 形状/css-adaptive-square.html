@@ -35,6 +35,10 @@
     content: '';
     display: block;
     margin-top: 100%;
+    /* margin-top: 100%;：这是实现正方形效果的关键。margin-top 属性设置为百分比值时，这个百分比是相对于其父元素的宽度来计算的。
+     * 在这里，由于 .square3 的宽度被设置为其父元素宽度的 30%，所以 .square3::after 的 margin-top 会根据 .square3 的宽度来计算，并且值为 .square3 宽度的 100%。
+     * 这就使得 .square3::after 在垂直方向上撑开的高度与 .square3 的宽度相等，从而使整个 .square3 元素呈现出正方形的形状。
+     */
   }
 </style>
 <body>
