@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> 1.3 伪类选择器</title>
+  <style>
+    /* :hover	鼠标悬停时触发	a:hover { color: red; } */
+    a:hover { color: red; }
+
+    /* :focus	获取焦点时触发	input:focus { border-color: blue; } */
+    input:focus { border-color: blue; }
+
+    /* :first-child	选中第一个子元素	p:first-child { font-weight: bold; } */
+    span :first-child { font-weight: bold; color: red; }
+
+    li:nth-child(2), li:nth-child(4) { color: red; }
+  </style>
+</head>
+<body>
+  <div>
+    <!-- :hover	鼠标悬停时触发	a:hover { color: red; } -->
+    <a href="#">:hover	鼠标悬停时触发</a>
+
+    <hr>
+    :focus	获取焦点时触发
+    <input type="text">
+    <hr>
+
+    <!-- :first-child	选中第一个子元素	p:first-child { font-weight: bold; } -->
+    <span>
+      <h6>first-child	选中第一个子元素</h6>
+      <h6>first-child	选中第一个子元素</h6>
+      <h6>first-child	选中第一个子元素</h6>
+    </span>
+
+    <hr>
+    <!-- :nth-child(n)	选中特定序号的子元素	li:nth-child(2) { color: red; } -->
+
+    <ul>
+      <li>:nth-child(2)	选中特定序号的子元素</li>
+      <li>:nth-child(2)	选中特定序号的子元素</li>
+      <li>:nth-child(2)	选中特定序号的子元素</li>
+      <li>:nth-child(2)	选中特定序号的子元素</li>
+      <li>:nth-child(2)	选中特定序号的子元素</li>
+    </ul>
+
+  </div>
+</body>
+</html>
