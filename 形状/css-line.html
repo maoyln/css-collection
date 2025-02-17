@@ -27,6 +27,7 @@
     transform: scaleY(0.5);
   }
 
+  /* 渐变直线 */
   .line3 {
     border-style: solid;
     border-width: 0.5px;
@@ -35,18 +36,85 @@
     border-image-repeat: stretch;
   }
 
+  /* 改变渐变方向 */
+  .line4 {
+    border-style: solid;
+    border-width: 0.5px;
+    border-image-source: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+    border-image-slice: 1 fill;
+    border-image-repeat: stretch;
+  }
+
+  /* 调整渐变颜色 */
+  .line5 {
+    border-style: solid;
+    border-width: 0.5px;
+    border-image-source: linear-gradient(to right, rgba(0,0,255,1), rgba(0,0,255,0));
+    border-image-slice: 1 fill;
+    border-image-repeat: stretch;
+  }
+
+  @keyframes moveGradient {
+    0% {
+        background-position: 0% 0%;
+        border-image-source: linear-gradient(to right, rgb(236, 2, 2), rgba(3, 236, 7, 0));
+    }
+    0% {
+        background-position: 0% 0%;
+        border-image-source: linear-gradient(to right, rgb(2, 236, 45), rgba(3, 236, 7, 0));
+    }
+    100% {
+        border-image-source: linear-gradient(to right, rgb(12, 5, 224), rgba(3, 236, 7, 0));
+        background-position: 100% 0%;
+    }
+  }
+
+  /* 添加动画效果 */
+  .line6 {
+    border-style: solid;
+    border-width: 0.5px;
+    border-image-source: linear-gradient(to right, rgb(236, 2, 2), rgba(3, 236, 7, 0));
+    border-image-slice: 1 fill;
+    border-image-repeat: stretch;
+    animation: moveGradient 1s linear infinite;
+  }
+
+  /* 添加圆角和阴影效果： */
+  .line7 {
+    border-style: solid;
+    border-width: 0.5px;
+    border-image-source: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));
+    border-image-slice: 1 fill;
+    border-image-repeat: stretch;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+
 </style>
 <body>
   <!-- 使用伪元素和透明度 -->
+  <div>使用伪元素和透明度</div>
   <div class="line1"></div>
-  <div>这是分割线---------</div>
 
-  <!-- 使用transform: scaleY() -->
+  <div>使用transform: scaleY()</div>
   <div class="line2"></div>
-  <div>这是分割线---------</div>
 
+  <div>利用border-image</div>
   <!-- 利用border-image -->
   <div class="line3"></div>
+  
+  <div>改变渐变方向</div>
+  <div class="line4"></div>
+  
+  <div>调整渐变颜色</div>
+  <div class="line5"></div>
+  
+  <div>添加动画效果</div>
+  <div class="line6"></div>
+
+  /* 添加圆角和阴影效果： */
+  <div class="line7"></div>
 
   <!-- <meta name="viewport" content="width=device-width, initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5"/> -->
 </body>
