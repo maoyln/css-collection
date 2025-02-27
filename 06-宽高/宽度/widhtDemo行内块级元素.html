@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>widhtDemo行内元素</title>
+  <style>
+    .box {
+      display: inline-block;
+      background-color: lightblue;
+    }
+
+    .box1 {
+      display: inline-block;
+      background-color: lightblue;
+      width: 100%;
+    }
+
+    .box2 {
+      display: inline-block;
+      background-color: lightblue;
+      width: 60%;
+    }
+
+    .box3 {
+      display: inline-block;
+      background-color: lightblue;
+      width: 40%;
+    }
+
+    .box4 {
+      display: inline-block;
+      background-color: lightblue;
+      width: 20%;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="box">这是一个行内元素</div>
+  <hr />
+  <div class="box1">行内元素的宽度由其内容决定，width 属性对其无效。</div>
+  <hr />
+  <div class="box2">因此，即使设置了 width: 100%，效果也不会发生变化。
+    <hr />
+  </div>
+  <hr />
+  <div class="box3">行内元素的宽度由其内容决定，width 属性对其无效。</div>
+  <hr />
+  <div class="box4">因此，即使设置了 width: 100%，效果也不会发生变化。</div>
+  <hr />
+</body>
+</html>
