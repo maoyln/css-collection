@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP Animation Demo</title>
+    <link rel="stylesheet" href="./css/JGaKdQ.css" />
+      
+    </script>
+    <style>
+      body {
+        margin-top: 50px;
+        text-align: center;
+      }
+
+      .box {
+        display: inline-block;
+        margin-right: 5px;
+      }
+
+      .pink {
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box green"></div>
+    <div class="box orange"></div>
+    <div class="box grey"></div>
+    <div class="box green"></div>
+    <div class="box orange"></div>
+    <div class="box grey"></div>
+    <div class="box green"></div>
+    <div class="box orange"></div>
+    <div class="box grey"></div>
+
+    <!-- 引入GSAP库 -->
+    <script src="./s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
+
+    <script>
+      // 页面加载完成后执行动画
+      document.addEventListener("DOMContentLoaded", function () {
+        var yMove = 50;
+        gsap.to(".box", {
+          delay: 0.5,
+          duration: 1,
+          y: function (i, elem, boxes) {
+            return i % 2 === 1 ? -yMove : yMove;
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
