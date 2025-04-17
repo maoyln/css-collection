@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP Animation Demo</title>
+    <link rel="stylesheet" href="./css/JGaKdQ.css" />
+
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        flex-direction: column;
+      }
+
+      button {
+        text-transform: none;
+        margin: 0.25rem;
+      }
+
+      .nav.light {
+        padding-top: 2rem;
+        background-color: transparent;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center
+      }
+    </style>
+  </head>
+  <!-- 学习：https://blog.csdn.net/m0_60157874/article/details/132146821 -->
+  <body>
+    <div class="container">
+      <div class="flair flair--25"></div>
+        <div class="nav light">
+        <button id="play">play()</button>
+        <button id="pause">pause()</button>
+        <button id="resume">resume()</button>
+        <button id="reverse">reverse()</button>
+        <button id="restart">restart()</button>
+      </div>
+    </div>
+    
+
+    <!-- 引入GSAP库 -->
+    <script src="./s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
+
+    <script>
+      // 页面加载完成后执行动画
+      document.addEventListener("DOMContentLoaded", function () {
+        let nav = document.querySelector('.nav')
+
+        let tween = gsap.to(".flair", {
+          duration: 2, 
+          x: () => nav.offsetWidth, // animate by the px width of the nav
+          xPercent: -100, // offset by the width of the box
+          rotation: 360, 
+          ease: "none", 
+          paused: true
+        });
+
+        // click handlers for controlling the tween instance...
+        document.querySelector("#play").onclick = () => tween.play();
+        document.querySelector("#pause").onclick = () => tween.pause();
+        document.querySelector("#resume").onclick = () => tween.resume();
+        document.querySelector("#reverse").onclick = () => tween.reverse();
+        document.querySelector("#restart").onclick = () => tween.restart();
+      });
+    </script>
+  </body>
+</html>
