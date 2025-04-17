@@ -45,7 +45,9 @@
           delay: 0.5,
           duration: 1,
           y: function (i, elem, boxes) {
-            return i % 2 === 1 ? -yMove : yMove;
+            console.log(elem, i, 'elem');
+            console.log(boxes, i, 'boxes');
+            return i % 2 === 0 ? -yMove : yMove;
           },
         });
       });

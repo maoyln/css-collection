@@ -41,13 +41,13 @@
       // 页面加载完成后执行动画
       document.addEventListener("DOMContentLoaded", function () {
         var colors = ["#3498db", "#27ae60", "#f1c40f"];
-gsap.to(".box", {
-  delay: 0.5,
-  duration: 1,
-  backgroundColor: function(i, elem, boxes) {
-    return colors[i % 3];
-  }
-});
+          gsap.to(".box", {
+            delay: 0.5,
+            duration: 1,
+            backgroundColor: function(i, elem, boxes) {
+              return colors[i % 3];
+            }
+          });
       });
     </script>
   </body>
