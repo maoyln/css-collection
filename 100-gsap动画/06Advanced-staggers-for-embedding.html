@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP Animation Demo</title>
+    <link rel="stylesheet" href="./css/JGaKdQ.css" />
+    <link href='//fonts.googleapis.com/css?family=Signika+Negative:300,400,600' rel='stylesheet' type='text/css'>
+      
+    </script>
+    <style>
+      /* Typography */
+
+@font-face {
+  font-display: block;
+  font-family: Mori;
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://assets.codepen.io/16327/PPMori-Regular.woff) format("woff");
+}
+
+@font-face {
+  font-display: block;
+  font-family: Mori;
+  font-style: normal;
+  font-weight: 600;
+  src: url(https://assets.codepen.io/16327/PPMori-SemiBold.woff) format("woff");
+}
+
+@font-face {
+  font-display: block;
+  font-family: Fraktion Mono;
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://assets.codepen.io/16327/PPFraktionMono-Bold.woff)
+    format("woff");
+}
+
+:root {
+  --color-shockingly-green: #0ae448;
+  --color-just-black: #0e100f;
+  --color-surface-white: #fffce1;
+  --color-pink: #fec5fb;
+  --color-shockingly-pink: #f100cb;
+  --color-orangey: #ff8709;
+  --color-lilac: #9d95ff;
+  --color-lt-green: #abff84;
+  --color-blue: #00bae2;
+  --color-grey: gray;
+  --color-surface75: #bbbaa6;
+  --color-surface50: #7c7c6f;
+  --color-surface25: #42433d;
+}
+
+:root {
+  --dark: var(--color-just-black);
+  --grey-dark: #42433d;
+  --light: var(--color-surface-white);
+  --mid: #7c7c6f;
+  --grey: #gray;
+  --gray: #gray;
+  --green: var(--color-shockingly-green);
+  --green-dark: #0ae448;
+  --green-light: var(--color-lt-green);
+  --blue: var(--color-blue);
+  --purple: var(--color-lilac);
+  --red: #cd237f;
+  --orange: var(--color-orangey);
+  accent-color: var(--color-shockingly-green);
+}
+
+body {
+  color: var(--color-surface-white);
+  background-color: var(--dark);
+  font-family: Mori, sans-serif;
+  font-weight: 400;
+  margin: 0;
+  font-size: var(--step-0);
+  line-height: 1.45;
+}
+
+html, body {
+  width: 0;         /* for fixing iOS iframe issues */
+  min-width: 100%;  /* for fixing iOS iframe issues */
+  overflow-x: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  accent-color: var(--color-shockingly-green);
+}
+body {
+  background-color: #0e100f;
+  text-align: center;
+  color: #bbb;
+  font-weight: 300;
+  font-size: 18px;
+  padding: 10px 0;
+}
+h1 {
+  margin: 0;
+  font-size: 50px;
+  text-align: left;
+}
+h2 {
+  font-size: 38px;
+  margin-bottom: 0;
+}
+h1, h2, h3 {
+  color: white;
+  font-weight: 400;
+}
+h3 {
+  margin-bottom: -12px;
+}
+#header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+a {
+  color: #88ce02;
+  text-decoration: none;
+  font-weight: 400;
+}
+a:hover {
+  text-decoration: underline;
+}
+#container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+.box {
+  background-color: #0ae448!important;
+  position: relative;
+  border-radius: 5px;
+}
+.box:before {
+  padding-top:100%;
+  content:"";
+  display:block;
+}
+#instructions {
+  margin-top: 35px;
+  padding:0 16px 16px 16px;
+  text-align: left;
+  max-width: 1000px;
+  display: inline-block;
+}
+
+.code {
+  background-color: #292a2b;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+strong {
+  font-weight: 400;
+  font-size: 20px;
+}
+.question {
+
+  font-size: 21px;
+  font-weight: 400;
+  display: block;
+}
+#controls {
+  text-align: center;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+}
+.control {
+  display: flex;
+  align-items: flex-start;
+  color: white;
+  margin-bottom: 10px;
+}
+.control-label {
+  margin-top: 10px;
+}
+.control-vertical {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  text-align: left;
+  justify-content: flex-start;
+  padding: 6px 8px;
+  border-radius: 9px;
+  background-color: #111;
+  margin-right: 18px;
+  color: #bbb;
+}
+
+.fr-video {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 0;
+  float: left;
+  padding-bottom: 56.25%;
+  margin: 12px 0 35px 0;
+}
+
+.fr-video iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: 2px solid #444;
+}
+
+#instructions li {
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 640px) {
+  h1 {
+    font-size: 30px;
+    line-height: 30px;
+  }
+  #controls {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <div id="instructions">
+      <div id="controls">
+        <div class="control">
+          <div class="control-label">from:</div>
+          <div class="control-vertical">
+            <label for="center"><input type="radio" id="center" name="from" value="center" checked> <code>"center"</code></label>
+            <label for="end"><input type="radio" id="end" name="from" value="end"> <code>"end"</code></label>
+            <label for="edges"><input type="radio" id="edges" name="from" value="edges"> <code>"edges"</code></label>
+            <label for="random"><input type="radio" id="random" name="from" value="random"> <code>"random"</code></label>
+            <label for="index"><input type="radio" id="index" name="from" value="11"> <code id="fromIndex">11 (index)</code></label>
+          </div>
+        </div>
+        
+        <div class="control">
+          <div class="control-label">axis:</div>
+          <div class="control-vertical">
+            <label for="null"><input type="radio" id="null" name="axis" value="null" checked> <code>null</code> (both)</label>
+            <label for="x"><input type="radio" id="x" name="axis" value="x"> <code>"x"</code></label>
+            <label for="y"><input type="radio" id="y" name="axis" value="y"> <code>"y"</code></label>
+          </div>
+        </div>
+        
+        <div class="control">
+          <div class="control-label">ease:</div>
+          <div class="control-vertical">
+            <label for="linear"><input type="radio" id="linear" name="ease" value='"none"' checked> <code>"none"</code></label>
+            <label for='"easeInOut"'><input type="radio" id="easeInOut" name="ease" value='"power3.inOut"'> <code>"power3.inOut"</code></label>
+            <label for="easeOut"><input type="radio" id="easeOut" name="ease" value='"power2.in"'> <code>"power2.in"</code></label>
+          </div>
+        </div>
+        
+      </div>
+      <p>Play with the options above to see how it affects the animation and the code below. Click any box to have the stagger emanate outward from that specific index number, using the <code class="featured">from:[index]</code> syntax.</p>
+      <div class="code">
+        <code>gsap.to(".box", {</code><br>
+        <code>&nbsp;&nbsp;duration: 1,</code><br>
+        <code>&nbsp;&nbsp;scale: 0.1,</code><br>
+        <code>&nbsp;&nbsp;y: 40,</code><br>
+        <code>&nbsp;&nbsp;ease: "power1.inOut",</code><br>
+        <code class="featured">&nbsp;&nbsp;stagger: {</code><br>
+        <code class="featured">&nbsp;&nbsp;&nbsp;&nbsp;grid: [7,15],</code><br>
+        <code class="featured">&nbsp;&nbsp;&nbsp;&nbsp;from: <span id="from">"center"</span>,<br></code>
+        <code id="axisCode" class="featured" style="display:none;">&nbsp;&nbsp;&nbsp;&nbsp;axis: <span id="axis">null</span>,<br></code>
+        <code id="easeCode" class="featured" style="display:none;">&nbsp;&nbsp;&nbsp;&nbsp;ease: <span id="ease">Linear.easeNone</span>,<br></code>
+        <code class="featured">&nbsp;&nbsp;&nbsp;&nbsp;amount: 1.5</code><br>
+        <code class="featured">&nbsp;&nbsp;}</code><br>
+        <code>});</code>
+      </div>
+      
+
+    <!-- 引入GSAP库 -->
+    <script src="./s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
+
+    <script>
+      // 页面加载完成后执行动画
+      document.addEventListener("DOMContentLoaded", function () {
+        //GSAP 3 introduces advanced stagger values
+var grid = [5,13], //[rows, columns]
+    tl = gsap.timeline({repeat: -1, repeatDelay: 0.5});
+
+function animateBoxes(from, axis, ease) {
+  //one stagger call does all the animation:
+  tl.to(".box", {
+      duration: 1,
+      scale: 0.1, 
+      y: 60,
+      yoyo: true, 
+      repeat: 1, 
+      ease: "power1.inOut",
+      stagger: {
+        amount: 1.5, 
+        grid: grid, 
+        axis: axis, 
+        ease: ease,
+        from: from
+      }
+    }
+  );
+}
+
+
+
+
+//builds a grid of <div class="box"> elements, dropped into #container (unrelated to animation code)
+buildGrid({grid: grid, className: "box", width: 1000, gutter: 15, parent: "#container", onCellClick: onCellClick});
+
+animateBoxes("center");
+
+
+
+
+//---- the rest of the code below just handles all the interactivity ----
+
+var options = document.querySelectorAll('input[name="from"], input[name="axis"], input[name="ease"]'),
+    _select = function(selector) {
+      return document.querySelector(selector);
+    },
+    axisCodeEl = _select("#axisCode"),
+    axisEl = _select("#axis"),
+    easeCodeEl = _select("#easeCode"),
+    easeEl = _select("#ease"),
+    fromEl = _select("#from"),
+    fromIndexEl = _select("#fromIndex"),
+    indexEl = _select("#index"),
+    selections = {from: "center", axis: null, ease: "none"},
+    i;
+
+//add change listeners
+for (i = 0; i < options.length; i++) {
+  options[i].addEventListener("change", onOptionChange);
+}
+
+function onOptionChange(e) {
+  var group = e.target.getAttribute("name"),
+      value = e.target.getAttribute("value");
+  if (group === "from") {
+    updateFrom(value);
+  } else if (group === "axis") {
+    selections.axis = (value === "null") ? null : value;
+    axisCode.style.display = (value === "null") ? "none" : "inline";
+    axisEl.textContent = '"' + value + '"';
+  } else if (group === "ease") {
+    easeEl.textContent = value;
+    easeCodeEl.style.display = (value === '"none"') ? "none" : "inline";
+    selections.ease = value.split('"').join("");
+  }
+  updateAnimation();
+}
+
+function updateFrom(value) {
+  var current = selections.from,
+      parsedVal = value,
+      newIsNumber = !isNaN(value),
+      oldIsNumber = !isNaN(current);
+  if (newIsNumber) {
+    parsedVal = parseInt(value, 10);
+  } else if (value === "end") {
+    parsedVal = grid[0] * grid[1] - 1;
+    newIsNumber = true;
+  }
+  if (current !== parsedVal) {
+    selections.from = parsedVal;
+    fromEl.textContent = (value === "end") ? '"end"' : newIsNumber ? value : '"' + value + '"';
+    if (newIsNumber && !oldIsNumber) {
+      gsap.to(".box", {duration: 0.3, backgroundColor: "#abff84"});
+    } else if (!newIsNumber && oldIsNumber) {
+      gsap.to(".box", {duration: 0.3, backgroundColor: "#0ae448"});
+    }
+    if (newIsNumber) {
+      if (value !== "end") {
+        indexEl.checked = true;
+        indexEl.setAttribute("value", parsedVal);
+        fromIndexEl.textContent = parsedVal + " (index)";
+      }
+      gsap.fromTo("[data-index='" + parsedVal + "']", {rotation: 0}, {duration: 0.4, rotation: 360, backgroundColor: "#0ae448", ease: "power1.inOut"});
+      if (oldIsNumber) {
+        gsap.to("[data-index='" + current + "']", {duration: 0.3, backgroundColor: "#abff84"});
+      }
+    }
+  }
+}
+
+function onCellClick(e) {
+  updateFrom(e.target.index);
+  updateAnimation();
+}
+
+function updateAnimation() {
+  tl.seek(0).clear();
+  animateBoxes(selections.from, selections.axis, selections.ease);
+}
+
+//helper function to build a grid of <div> elements
+function buildGrid(vars) {
+	vars = vars || {};
+	var container = document.createElement("div"),
+		rows = vars.grid[0] || 5,
+		cols = vars.grid[1] || 5,
+		width = vars.width || 100,
+		gutter = vars.gutter || 1,
+    className = vars.className || "",
+		w = (width - cols * gutter) / cols,
+		parent = (typeof(vars.parent) === "string") ? document.querySelector(vars.parent) : vars.parent ? vars.parent : document.body,
+		css = "display: inline-block; margin: 0 " + (gutter / width * 100) + "% " + (gutter / width * 100) + "% 0; width: " + (w / width * 100) + "%;",
+		l = rows * cols,
+		i, box;
+	for (i = 0; i < l; i++) {
+		box = document.createElement("div");
+		box.style.cssText = css;
+    box.setAttribute("class", className);
+    box.index = i;
+    box.setAttribute("data-index", i);
+    if (vars.onCellClick) {
+      box.addEventListener("click", vars.onCellClick);
+    }
+		container.appendChild(box);
+	}
+	container.style.cssText = "width:" + width + "px; line-height: 0; padding:" + gutter + "px 0 0 " + gutter + "px; display:inline-block;";
+	parent.appendChild(container);
+	return container;
+}
+
+//this just helps avoid the pixel-snapping that some browsers do.
+gsap.set(".box", {rotation: 0.5, force3D: true});
+      });
+    </script>
+  </body>
+</html>
