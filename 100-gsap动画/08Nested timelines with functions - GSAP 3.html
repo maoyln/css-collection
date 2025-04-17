@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP Animation Demo</title>
+    <link rel="stylesheet" href="./css/JGaKdQ.css" />
+    <link href="https://fonts.googleapis.com/css?family=Signika+Negative:300,400,600" rel="stylesheet">
+    </script>
+    <style>
+      body {
+        background: #ddd;
+        font-family: 'Signika Negative', sans-serif;
+      }
+
+      .banner {
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .panel {
+        width: 300px;
+        height: 250px;
+        display: inline-block;
+        background: black;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .bg {
+        position: absolute;
+        width: 300px;
+        height: 178px;
+        background-color: #e644dc;
+      }
+
+      .logo {
+        position: absolute;
+        left: 105px;
+        top: 147px;
+      }
+
+      .text {
+        position: absolute;
+        font-size: 32px;
+        text-align: center;
+        width: 300px;
+        top: 50px;
+        color: white;
+        font-weight: 300;
+        text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+      }
+
+      .text span {
+        display: inline-block;
+      }
+
+      .gsap {
+        color: #87ce02;
+        font-weight: 700;
+        font-size: 36px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+      <div class="panel panel1">
+        <div class="bg" style="background:#e644dc;"></div>
+        <div class="text">
+          <span>Code</span> <span>animations</span><br>
+          <span>like</span> <span>a</span> <span>pro</span>
+        </div>
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/logo-nested-timelines.png" class="logo"/>
+      </div>
+      <div class="panel panel2">
+        <div class="bg" style="background:#4471e6;"></div>
+        <div class="text">
+          <span>Craft</span> <span>readable,</span><br>
+          <span>efficient</span> <span>code</span>
+        </div>
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/logo-nested-timelines.png" class="logo"/>
+      </div>
+      <div class="panel panel3">
+        <div class="bg" style="background:#666;"></div>
+        <div class="text">
+          <span>Animate</span> <span>smart.</span><br>
+          <span class="gsap">GSAP</span>
+        </div>
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/logo-nested-timelines.png" class="logo"/>
+      </div>
+    </div>
+
+    <!-- 引入GSAP库 -->
+    <script src="./s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
+
+    <script>
+      // 页面加载完成后执行动画
+      document.addEventListener("DOMContentLoaded", function () {
+        function createPanel(panel) {
+          var tl = gsap.timeline();
+          tl.from(panel + " .bg", {duration: 0.4, scale: 0, ease: "power1.inOut"})
+            .from(panel + " .bg", {duration: 0.3, rotation: 90, ease: "power1.inOut"}, 0)
+            .from(panel + " .text span", {duration: 1.1, y: -50, opacity: 0, ease: "elastic", stagger: 0.06})
+            .addLabel("out", "+=1")
+            .to(panel + " .text span", {duration: 0.3, opacity: 0, y: 50, ease: "power1.in", stagger: -0.06}, "out")
+            .to(panel + " .bg", {duration: 0.4, scale: 0, rotation: -90, ease: "power1.in"});
+          return tl; //very important that the timeline gets returned
+        }
+
+        var master = gsap.timeline({repeat: -1});
+        master.add(createPanel(".panel1"))
+          .add(createPanel(".panel2"))
+          .add(createPanel(".panel3"));
+
+
+        //make smaller for when demo is embedded
+        gsap.set(".banner", {scale: 0.8, transformOrigin: "center center"});
+      });
+    </script>
+  </body>
+</html>

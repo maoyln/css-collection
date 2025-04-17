@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP Animation Demo</title>
+    <link rel="stylesheet" href="./css/JGaKdQ.css" />
+      
+    </script>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Signika+Negative:300,400&display=swap');
+        body { 
+          font-family: "Signika Negative", sans-serif; 
+          font-weight: 300;
+        }
+        .container:nth-child(2) {
+          text-align: right;
+        }
+        .container > * {
+          opacity: 0;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="heading">First container heading</h1>
+      <p class="content">Looping is so helpful!</p>
+    </div>
+    <div class="container">
+      <h1 class="heading">Second container heading</h1>
+      <p class="content">Looping is so helpful!</p>
+    </div>
+    <div class="container">
+      <h1 class="heading">Third container heading</h1>
+      <p class="content">Looping is so helpful!</p>
+    </div>
+
+    <!-- 引入GSAP库 -->
+    <script src="./s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
+
+    <script>
+      // 页面加载完成后执行动画
+      document.addEventListener("DOMContentLoaded", function () {
+        gsap.utils.toArray(".container").forEach((container, i) => {
+          const header = container.querySelector("h1");
+          const content = container.querySelector(".content");
+          
+          gsap.to([header, content], {autoAlpha: 1, duration: 0.5, stagger: 1, delay: i * 2});
+        });
+      });
+    </script>
+  </body>
+</html>
