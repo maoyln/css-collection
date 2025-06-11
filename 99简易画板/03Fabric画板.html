@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fabric.js 简易画板</title>
+  <script src="https://cdn.jsdelivr.net/npm/fabric@5.3.0/dist/fabric.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background: #f9f9f9;
+    }
+
+    #toolbar {
+      padding: 10px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    #toolbar input[type="color"] {
+      width: 40px;
+      height: 30px;
+      border: none;
+    }
+
+    #toolbar button {
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      background: #eee;
+      cursor: pointer;
+    }
+
+    #toolbar button:hover {
+      background: #ddd;
+    }
+
+    #drawingCanvas {
+      border: 1px solid #ccc;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<div id="toolbar">
+  <label>画笔颜色：</label>
+  <input type="color" id="colorPicker" value="#000000" />
+  <button id="clearCanvas">清空画布</button>
+</div>
+
+<canvas id="drawingCanvas" width="1000" height="600"></canvas>
+
+<script>
+  // 创建 Fabric.js 画布实例
+  const canvas = new fabric.Canvas('drawingCanvas', {
+    isDrawingMode: true, // 开启绘图模式
+  });
+
+  // 设置初始画笔样式
+  canvas.freeDrawingBrush.color = '#000000';
+  canvas.freeDrawingBrush.width = 3;
+
+  // 改变颜色
+  document.getElementById('colorPicker').addEventListener('change', (e) => {
+    canvas.freeDrawingBrush.color = e.target.value;
+  });
+
+  // 清空画布
+  document.getElementById('clearCanvas').addEventListener('click', () => {
+    canvas.clear();
+    // 重新开启绘图模式（因为 clear 会移除所有内容）
+    canvas.isDrawingMode = true;
+  });
+</script>
+
+</body>
+</html>
