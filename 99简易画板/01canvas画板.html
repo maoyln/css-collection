@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Konva 简易画板</title>
+  <script src="https://cdn.jsdelivr.net/npm/konva@9.2.0/konva.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f0f0f0;
+      font-family: sans-serif;
+    }
+
+    #toolbar {
+      background: #fff;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    #colorPicker {
+      width: 40px;
+      height: 30px;
+      border: none;
+    }
+
+    #container {
+      background: #fff;
+    }
+
+    button {
+      padding: 6px 10px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      background: #eee;
+    }
+
+    button:hover {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+<div id="toolbar">
+  <label>颜色:</label>
+  <input type="color" id="colorPicker" value="#000000">
+  <button id="clearBtn">清空画布</button>
+</div>
+
+<div id="container"></div>
+
+<script>
+  const width = window.innerWidth;
+  const height = window.innerHeight - 50;
+
+  const stage = new Konva.Stage({
+    container: 'container',
+    width: width,
+    height: height
+  });
+
+  const layer = new Konva.Layer();
+  stage.add(layer);
+
+  let isPainting = false;
+  let lastLine;
+  let color = document.getElementById('colorPicker').value;
+
+  stage.on('mousedown touchstart', function () {
+    isPainting = true;
+    const pos = stage.getPointerPosition();
+    lastLine = new Konva.Line({
+      stroke: color,
+      strokeWidth: 3,
+      globalCompositeOperation: 'source-over',
+      points: [pos.x, pos.y],
+      lineCap: 'round',
+      lineJoin: 'round'
+    });
+    layer.add(lastLine);
+  });
+
+  stage.on('mouseup touchend', function () {
+    isPainting = false;
+  });
+
+  stage.on('mousemove touchmove', function () {
+    if (!isPainting) return;
+    const pos = stage.getPointerPosition();
+    const newPoints = lastLine.points().concat([pos.x, pos.y]);
+    lastLine.points(newPoints);
+    layer.batchDraw();
+  });
+
+  document.getElementById('colorPicker').addEventListener('change', function (e) {
+    color = e.target.value;
+  });
+
+  document.getElementById('clearBtn').addEventListener('click', function () {
+    layer.destroyChildren(); // 清除所有线条
+    layer.draw();
+  });
+</script>
+
+</body>
+</html>
