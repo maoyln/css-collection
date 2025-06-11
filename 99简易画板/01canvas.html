@@ -70,7 +70,6 @@
   });
 
   canvas.addEventListener('mousemove', e => {
-    console.log(e.offsetX, e.offsetY);
     if (!isDrawing) return;
     ctx.strokeStyle = colorPicker.value;
     ctx.lineWidth = 2;
